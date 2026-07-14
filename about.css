@@ -1,0 +1,96 @@
+/* ── ABOUT PAGE ── */
+.about-intro { background: var(--white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 6vw, 96px);
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ink);
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-weave {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(123,174,138,.09) 0px, rgba(123,174,138,.09) 2px, transparent 2px, transparent 14px),
+    repeating-linear-gradient(-45deg, rgba(181,137,58,.07) 0px, rgba(181,137,58,.07) 2px, transparent 2px, transparent 14px);
+}
+.about-visual-text {
+  position: relative;
+  z-index: 2;
+  font-family: var(--ff-disp);
+  font-size: 90px;
+  font-weight: 900;
+  color: rgba(123,174,138,.18);
+  letter-spacing: -.05em;
+  line-height: 1;
+  user-select: none;
+}
+.about-badge {
+  position: absolute;
+  bottom: 24px; left: 24px;
+  background: var(--accent);
+  color: var(--ink);
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  z-index: 3;
+}
+.about-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* VALUES */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+  margin-top: 52px;
+}
+.value-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(123,174,138,.1);
+  padding: 36px 32px;
+  transition: background .2s;
+}
+.value-card:hover { background: rgba(123,174,138,.07); }
+.value-icon { font-size: 28px; margin-bottom: 16px; }
+.value-title {
+  font-family: var(--ff-disp);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.value-body { font-size: 14px; color: rgba(250,252,251,.5); line-height: 1.7; }
+
+/* MARKETS */
+.markets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.market-card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  border-radius: 8px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: all .2s;
+}
+.market-card:hover { border-color: var(--leaf); transform: translateY(-3px); }
+.market-flag { font-size: 36px; margin-bottom: 12px; }
+.market-name { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.market-desc { font-size: 13px; color: var(--sage); }
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-visual { min-height: 260px; }
+}

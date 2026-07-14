@@ -1,0 +1,273 @@
+/* ============================================================
+   Vertex Sourcing Solutions — Global Stylesheet
+   Edit this file to change fonts, colors, or spacing site-wide
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap');
+
+/* ── CSS VARIABLES (edit here to retheme entire site) ── */
+:root {
+  --ink:        #0F1512;
+  --slate:      #2A3530;
+  --sage:       #4A6358;
+  --leaf:       #7BAE8A;
+  --mist:       #C8DDD1;
+  --foam:       #EDF5F0;
+  --white:      #FAFCFB;
+  --accent:     #B5893A;
+  --accent-lt:  #E8C97A;
+  --ff-disp:    'Playfair Display', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+  --ff-mono:    'DM Mono', monospace;
+  --ease:       cubic-bezier(.4,0,.2,1);
+  --nav-h:      72px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  background: var(--white);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--foam); }
+::-webkit-scrollbar-thumb { background: var(--leaf); border-radius: 3px; }
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3, h4 {
+  font-family: var(--ff-disp);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+p { line-height: 1.75; }
+a { text-decoration: none; color: inherit; }
+
+/* ── REUSABLE LAYOUT ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+section {
+  padding: clamp(72px, 10vw, 120px) 5vw;
+}
+
+/* ── SHARED LABELS & HEADINGS ── */
+.section-label {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 12px;
+  display: block;
+}
+.section-title {
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.section-body {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 4px;
+  letter-spacing: .04em;
+  transition: background .2s var(--ease), transform .2s;
+}
+.btn-primary:hover { background: var(--accent-lt); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: 1px solid rgba(250,252,251,.2);
+  letter-spacing: .04em;
+  transition: all .2s var(--ease);
+}
+.btn-ghost:hover { border-color: var(--leaf); color: var(--leaf); }
+
+.btn-ghost-dark {
+  display: inline-block;
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 30px;
+  border-radius: 4px;
+  border: 1.5px solid var(--mist);
+  letter-spacing: .04em;
+  transition: all .2s var(--ease);
+}
+.btn-ghost-dark:hover { border-color: var(--sage); color: var(--sage); }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  height: var(--nav-h);
+  background: rgba(15,21,18,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(123,174,138,.15);
+}
+.nav-logo img {
+  height: 54px;
+  width: auto;
+  mix-blend-mode: lighten;
+  filter: brightness(1.15) saturate(0.9);
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(250,252,251,.65);
+  letter-spacing: .04em;
+  transition: color .2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--leaf); }
+.nav-cta {
+  background: var(--accent);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 4px;
+  letter-spacing: .05em;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--accent-lt); }
+
+/* ── FOOTER ── */
+footer {
+  background: #070B09;
+  padding: 32px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-top: 1px solid rgba(123,174,138,.08);
+}
+footer img {
+  height: 46px;
+  width: auto;
+  mix-blend-mode: lighten;
+  filter: brightness(0.85);
+}
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(250,252,251,.4);
+  letter-spacing: .04em;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--leaf); }
+.footer-copy {
+  font-size: 12px;
+  color: rgba(250,252,251,.25);
+  letter-spacing: .04em;
+}
+.footer-copy span { color: var(--leaf); }
+
+/* ── PAGE HERO (inner pages) ── */
+.page-hero {
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ink);
+  padding: calc(var(--nav-h) + 60px) 5vw 60px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 80% at 20% 60%, rgba(74,99,88,.3) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 30%, rgba(181,137,58,.1) 0%, transparent 60%);
+}
+.page-hero-threads {
+  position: absolute; inset: 0; opacity: .05;
+  background-image:
+    repeating-linear-gradient(0deg, var(--leaf) 0px, var(--leaf) 1px, transparent 1px, transparent 18px),
+    repeating-linear-gradient(90deg, var(--leaf) 0px, var(--leaf) 1px, transparent 1px, transparent 18px);
+  background-size: 18px 18px;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero h1 {
+  font-size: clamp(34px, 5vw, 58px);
+  color: var(--white);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.page-hero p {
+  font-size: 17px;
+  color: rgba(250,252,251,.55);
+  max-width: 560px;
+}
+
+/* ── PILL TAGS ── */
+.pill {
+  display: inline-block;
+  background: var(--foam);
+  border: 1px solid var(--mist);
+  color: var(--sage);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: .03em;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  footer { flex-direction: column; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition: none !important; animation: none !important; }
+}
