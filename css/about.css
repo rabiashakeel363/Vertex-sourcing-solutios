@@ -22,6 +22,7 @@
     repeating-linear-gradient(45deg, rgba(123,174,138,.09) 0px, rgba(123,174,138,.09) 2px, transparent 2px, transparent 14px),
     repeating-linear-gradient(-45deg, rgba(181,137,58,.07) 0px, rgba(181,137,58,.07) 2px, transparent 2px, transparent 14px);
 }
+
 .about-visual-text {
   position: relative;
   z-index: 2;

@@ -138,7 +138,7 @@ nav {
   border-bottom: 1px solid rgba(123,174,138,.15);
 }
 .nav-logo img {
-  height: 54px;
+  height: 70px;
   width: auto;
   mix-blend-mode: lighten;
   filter: brightness(1.15) saturate(0.9);
