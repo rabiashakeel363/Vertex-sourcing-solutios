@@ -277,23 +277,32 @@ footer img {
 
 
 
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Hides horizontal scrolling and white space */
+  margin: 0;
+  padding: 0;
+}
 
-/* Triggers on mobile screens (768px wide or smaller) */
+* {
+  box-sizing: border-box; /* Forces padding to stay inside the element's width */
+}
+
+
+nav {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px; /* Safe padding that won't cause overflow */
+}
+
+/* Update the mobile query we added earlier to look like this */
 @media (max-width: 768px) {
-  
-  /* 1. Stacks the links vertically instead of horizontally */
   .nav-links {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    width: 100%;
+    width: 100%; /* Ensure it takes up screen width, not more */
+    margin: 0;
     padding: 0;
-  }
-
-  /* 2. Adds vertical spacing between the menu items */
-  .nav-links li, .nav-links a {
-    margin: 10px 0;
-    width: 100%;
-    text-align: center;
   }
 }
