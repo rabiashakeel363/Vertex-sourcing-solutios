@@ -136,6 +136,7 @@ nav {
   background: rgba(15,21,18,.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(123,174,138,.15);
+  overflow-x: hidden;
 }
 .nav-logo img {
   height: 70px;
@@ -272,37 +273,3 @@ footer img {
   * { transition: none !important; animation: none !important; }
 }
 
-
-
-
-
-
-html, body {
-  width: 100%;
-  overflow-x: hidden; /* Hides horizontal scrolling and white space */
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box; /* Forces padding to stay inside the element's width */
-}
-
-
-nav {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 20px; /* Safe padding that won't cause overflow */
-}
-
-/* Update the mobile query we added earlier to look like this */
-@media (max-width: 768px) {
-  .nav-links {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    width: 100%; /* Ensure it takes up screen width, not more */
-    margin: 0;
-    padding: 0;
-  }
-}
