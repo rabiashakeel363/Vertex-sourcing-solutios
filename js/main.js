@@ -1,6 +1,6 @@
 /* ============================================================
    Vertex Sourcing Solutions — Shared JS
-   Handles: nav injection, footer injection, scroll reveal
+   Handles: nav injection, mobile hamburger menu, footer injection, scroll reveal
    ============================================================ */
 
 /* ── Determine path prefix based on current page location ── */
@@ -26,10 +26,16 @@ function renderNav(activePage) {
   <a class="nav-logo" href="${root}index.html">
     <img src="${root}images/logo.png" alt="Vertex Sourcing Solutions" />
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     ${linkHTML}
+    <li class="nav-links-mobile-cta"><a href="${root}pages/contact.html">Get in Touch</a></li>
   </ul>
   <a href="${root}pages/contact.html" class="nav-cta">Get in Touch</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>`;
 }
 
@@ -64,6 +70,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const footerEl = document.getElementById('footer-placeholder');
   if (footerEl) footerEl.outerHTML = renderFooter();
+
+  /* ── MOBILE HAMBURGER MENU ── */
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+
+    /* Close menu when a link is tapped */
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('nav-open');
+      });
+    });
+
+    /* Close menu if window is resized back to desktop */
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860 && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        document.body.classList.remove('nav-open');
+      }
+    });
+  }
 
   /* ── SCROLL REVEAL ── */
   const reveals = document.querySelectorAll('.reveal');

@@ -136,10 +136,9 @@ nav {
   background: rgba(15,21,18,.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(123,174,138,.15);
-  overflow-x: hidden;
 }
 .nav-logo img {
-  height: 70px;
+  height: 54px;
   width: auto;
   mix-blend-mode: lighten;
   filter: brightness(1.15) saturate(0.9);
@@ -169,6 +168,36 @@ nav {
   transition: background .2s;
 }
 .nav-cta:hover { background: var(--accent-lt); }
+
+/* Mobile-only CTA shown inside the dropdown links list — hidden on desktop */
+.nav-links-mobile-cta { display: none; }
+
+/* Hamburger button — hidden on desktop */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform .25s var(--ease), opacity .2s var(--ease);
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── FOOTER ── */
 footer {
@@ -205,6 +234,52 @@ footer img {
   letter-spacing: .04em;
 }
 .footer-copy span { color: var(--leaf); }
+
+/* ── RESPONSIVE NAV: hamburger takes over below 860px ── */
+@media (max-width: 860px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(15,21,18,.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(123,174,138,.15);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .3s var(--ease), opacity .25s var(--ease);
+    padding: 0 5vw;
+  }
+  .nav-links.open {
+    max-height: 420px;
+    opacity: 1;
+    padding: 12px 5vw 20px;
+  }
+  .nav-links li {
+    border-bottom: 1px solid rgba(250,252,251,.06);
+  }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a {
+    display: block;
+    padding: 14px 2px;
+    font-size: 15px;
+  }
+  .nav-links-mobile-cta { display: block; }
+  .nav-links-mobile-cta a {
+    color: var(--accent-lt);
+    font-weight: 600;
+  }
+  .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+
+  footer { flex-direction: column; text-align: center; }
+}
+
+/* Prevent background scroll when mobile menu is open */
+body.nav-open { overflow: hidden; }
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
