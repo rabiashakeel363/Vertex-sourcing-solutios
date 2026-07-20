@@ -340,8 +340,7 @@ body.nav-open { overflow: hidden; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
-  .nav-links { display: none; }
-  footer { flex-direction: column; text-align: center; }
+    footer { flex-direction: column; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
