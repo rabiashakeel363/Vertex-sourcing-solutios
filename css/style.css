@@ -25,14 +25,19 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
 body {
   font-family: var(--ff-body);
   background: var(--white);
   color: var(--ink);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100vw;
 }
+
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
@@ -340,7 +345,7 @@ body.nav-open { overflow: hidden; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
-    footer { flex-direction: column; text-align: center; }
+  footer { flex-direction: column; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }

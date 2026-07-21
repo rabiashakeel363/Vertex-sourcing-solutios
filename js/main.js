@@ -43,9 +43,6 @@ function renderNav(activePage) {
 function renderFooter() {
   return `
 <footer>
-  <a href="${root}index.html">
-    <img src="${root}images/logo.png" alt="Vertex Sourcing Solutions" />
-  </a>
   <ul class="footer-links">
     <li><a href="${root}pages/about.html">About</a></li>
     <li><a href="${root}pages/capabilities.html">Capabilities</a></li>
